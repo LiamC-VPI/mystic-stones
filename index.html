@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threshold Stones of Scotland</title>
+    <style>
+        :root {
+            --bg: #fbfcfb;
+            --text-dark: #1b261b;
+            --text-light: #526652;
+            --forest: #28442e;
+            --card: #f2f6f2;
+            --border: #d4dfd4;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        .header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 90px 20px 50px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: 400;
+            color: var(--forest);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .story-box {
+            font-style: italic;
+            font-size: 1.2em;
+            color: var(--text-light);
+            max-width: 680px;
+            margin: 0 auto;
+            border-left: 3px solid var(--border);
+            padding-left: 20px;
+            text-align: left;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+        .stone-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .stone-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--forest);
+        }
+        .price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--forest);
+            margin: 20px 0 10px 0;
+        }
+        .btn-buy {
+            background-color: var(--forest);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-buy:hover { opacity: 0.9; }
+        .footer {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            font-size: 0.9em;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            max-width: 800px;
+            margin: 80px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Threshold Stones</h1>
+        <div class="story-box">
+            "I am a threshold walker of Scotland, born into this life on the 28th of September, 1994. 
+            My path takes me through the thin places of this ancient land—across mist-shrouded Highland peaks, 
+            forgotten riverbeds, and weathered Atlantic coastlines. Every stone gathered here remains in its raw, 
+            rough form, encountered at a specific threshold. I do not mass-produce; I simply bridge the gap, 
+            passing these sacred fragments of the earth directly from my hands into yours."
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="stone-card">
+                <div>
+                    <h3>Highland Crag Stone</h3>
+                    <p>A raw, unpolished mineral cluster gathered directly from high mountain pass lines and exposed weather horizons. Includes its specific walking date and landscape narrative chronicle.</p>
+                </div>
+                <div>
+                    <div class="price">£25.00</div>
+                    <button class="btn-buy">Purchase via Crypto</button>
+                </div>
+            </div>
+
+            <div class="stone-card">
+                <div>
+                    <h3>Riverbed & Glen Stone</h3>
+                    <p>Naturally dynamic pocket stone sourced from deep geological valleys and active mountain burns. Formed over generations by moving Scottish freshwaters. Includes historical stream lore paths.</p>
+                </div>
+                <div>
+                    <div class="price">£20.00</div>
+                    <button class="btn-buy">Purchase via Crypto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Sovereign open-source internet distribution setup.</p>
+        <p>Peer-to-peer asset delivery tracking system active.</p>
+    </div>
+
+</body>
+</html>
