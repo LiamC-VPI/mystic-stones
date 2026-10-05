@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threshold Stones of Scotland</title>
+    <title>Threshold Stones - Monero Auctions</title>
     <style>
         :root {
             --bg: #fbfcfb;
@@ -12,6 +12,7 @@
             --forest: #28442e;
             --card: #f2f6f2;
             --border: #d4dfd4;
+            --gold: #8b7355;
         }
         body {
             font-family: 'Georgia', serif;
@@ -24,7 +25,7 @@
         .header {
             max-width: 800px;
             margin: 0 auto;
-            padding: 90px 20px 50px 20px;
+            padding: 90px 20px 40px 20px;
             text-align: center;
         }
         h1 {
@@ -51,7 +52,7 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 35px;
             margin-top: 40px;
         }
@@ -69,11 +70,18 @@
             font-size: 1.5em;
             color: var(--forest);
         }
-        .price {
+        .auction-status {
+            background-color: #e8ede8;
+            border: 1px dashed var(--forest);
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        .current-bid {
             font-size: 1.4em;
             font-weight: bold;
-            color: var(--forest);
-            margin: 20px 0 10px 0;
+            color: var(--gold);
         }
         .checkout-box {
             margin-top: 15px;
@@ -127,47 +135,60 @@
             "I am a threshold walker of Scotland, born into this life on the 28th of September, 1994. 
             My path takes me through the thin places of this ancient land—across mist-shrouded Highland peaks, 
             forgotten riverbeds, and weathered Atlantic coastlines. Every stone gathered here remains in its raw, 
-            rough form, encountered at a specific threshold. I do not mass-produce; I simply bridge the gap, 
-            passing these sacred fragments of the earth directly from my hands into yours."
+            rough form. I do not mass-produce; I offer these rare fragments to the world via open cryptographic auction."
         </div>
     </div>
 
     <div class="container">
         <div class="grid">
-            <!-- COLLECTION 1: HIGHLAND STONES -->
+            <!-- AUCTION OBJECT 1 -->
             <div class="stone-card">
                 <div>
-                    <h3>Highland Crag Stone</h3>
-                    <p>A raw, unpolished mineral cluster gathered directly from high mountain pass lines and exposed weather horizons. Includes its specific walking date and landscape narrative chronicle.</p>
+                    <h3>Highland Crag Stone #01</h3>
+                    <p>A raw, stormy mineral cluster gathered from high mountain trail lines. Includes its specific walking date chronicle.</p>
+                    <div class="auction-status">
+                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.25 XMR</span><br>
+                        ⏳ <strong>Auction Ends:</strong> Oct 12, 2026<br>
+                        🔑 <strong>Bid Tracking ID:</strong> <code>CRAG-01</code>
+                    </div>
                 </div>
                 <div>
-                    <div class="price">£25.00</div>
                     <div class="checkout-box">
                         <details>
-                            <summary>▼ Purchase via Monero</summary>
+                            <summary>🎲 Place Your Monero Bid</summary>
                             <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
                             <p class="instructions">
-                                *To complete your purchase: Send payment and message your transaction hash along with your physical shipping address to my social profile paths.
+                                <strong>How to Bid:</strong><br>
+                                1. Transfer your desired bid amount to the wallet address above.<br>
+                                2. Include the Tracking ID <code>CRAG-01</code> in your transaction description, or note the transaction hash.<br>
+                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded to your address.
                             </p>
                         </details>
                     </div>
                 </div>
             </div>
 
-            <!-- COLLECTION 2: WATER STONES -->
+            <!-- AUCTION OBJECT 2 -->
             <div class="stone-card">
                 <div>
-                    <h3>Riverbed & Glen Stone</h3>
-                    <p>Naturally dynamic pocket stone sourced from deep geological valleys and active mountain burns. Formed over generations by moving Scottish freshwaters. Includes historical stream lore paths.</p>
+                    <h3>Riverbed & Glen Stone #01</h3>
+                    <p>Naturally shaped pocket stone sourced from moving Scottish water channels. Retains heavy geological character.</p>
+                    <div class="auction-status">
+                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.18 XMR</span><br>
+                        ⏳ <strong>Auction Ends:</strong> Oct 12, 2026<br>
+                        🔑 <strong>Bid Tracking ID:</strong> <code>GLEN-01</code>
+                    </div>
                 </div>
                 <div>
-                    <div class="price">£20.00</div>
                     <div class="checkout-box">
                         <details>
-                            <summary>▼ Purchase via Monero</summary>
+                            <summary>🎲 Place Your Monero Bid</summary>
                             <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
                             <p class="instructions">
-                                *To complete your purchase: Send payment and message your transaction hash along with your physical shipping address to my social profile paths.
+                                <strong>How to Bid:</strong><br>
+                                1. Transfer your desired bid amount to the wallet address above.<br>
+                                2. Include the Tracking ID <code>GLEN-01</code> in your transaction description, or note the transaction hash.<br>
+                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded to your address.
                             </p>
                         </details>
                     </div>
@@ -177,7 +198,7 @@
     </div>
 
     <div class="footer">
-        <p>Sovereign open-source internet distribution setup.</p>
+        <p>Sovereign open-source internet auction layout.</p>
         <p>Peer-to-peer asset delivery tracking system active.</p>
     </div>
 
