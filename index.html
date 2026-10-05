@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threshold Stones - Monero Auctions</title>
+    <title>Threshold Stones - Live Monero Auctions</title>
     <style>
         :root {
             --bg: #fbfcfb;
@@ -44,6 +44,63 @@
             border-left: 3px solid var(--border);
             padding-left: 20px;
             text-align: left;
+        }
+        .dev-note {
+            max-width: 640px;
+            margin: 20px auto;
+            background-color: #f4f7f4;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        .donation-container {
+            max-width: 640px;
+            margin: 30px auto 10px auto;
+            background-color: #f7faf7;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+        }
+        .donation-container h4 {
+            margin-top: 0;
+            color: var(--forest);
+            font-size: 1.2em;
+        }
+        .donation-box details {
+            background: var(--forest);
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            width: 80%;
+            max-width: 300px;
+        }
+        .donation-box summary {
+            user-select: none;
+            list-style: none;
+        }
+        .donation-box summary::-webkit-details-marker {
+            display: none;
+        }
+        .donation-address {
+            font-size: 0.85em;
+            margin-top: 15px;
+            font-family: monospace;
+            background: white;
+            color: var(--text-dark);
+            padding: 10px;
+            border: 1px solid var(--border);
+            word-break: break-all;
+            user-select: all;
+            font-weight: normal;
+            border-radius: 4px;
         }
         .container {
             max-width: 1000px;
@@ -136,13 +193,33 @@
         </div>
     </div>
 
+    <!-- PACE OF DEVELOPMENT NOTICE -->
+    <div class="dev-note">
+        📜 Note: Auctions are fully active. Product image integrations and frontend updates are rolling out at my own pace as I document the landscape paths.
+    </div>
+
+    <!-- GLOBAL DONATION CONTAINER (ACTIVE) -->
+    <div class="donation-container">
+        <h4>🌲 Support the Cause</h4>
+        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 20px;">
+            If you align with open-source internet design, peer-to-peer commerce, and the tracking of untamed wilderness paths, consider throwing fuel on the fire. All donations keep this platform entirely sovereign and free from corporate monitoring.
+        </p>
+        <div class="donation-box">
+            <details>
+                <summary>❤️ Donate via Monero (XMR)</summary>
+                <div class="donation-address">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
+            </details>
+        </div>
+    </div>
+
     <div class="container">
+        <h2 style="text-align: center; color: var(--forest); font-weight: 400; margin-top: 50px;">Live Raw Stone Auctions</h2>
         <div class="grid">
             <!-- ITEM 1 -->
             <div class="stone-card">
                 <div>
                     <h3>Highland Crag Stone #01</h3>
-                    <p>A raw, stormy mineral cluster gathered from high mountain trail lines. Includes its specific walking date chronicle.</p>
+                    <p>A raw, stormy mineral cluster gathered from high mountain trail lines. Kept completely unpolished to preserve its rugged character. Includes its specific walking date chronicle.</p>
                     <div class="auction-status">
                         👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.25 XMR</span><br>
                         ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
@@ -169,7 +246,7 @@
             <div class="stone-card">
                 <div>
                     <h3>Riverbed & Glen Stone #01</h3>
-                    <p>Naturally shaped pocket stone sourced from moving Scottish water channels. Retains heavy geological character.</p>
+                    <p>Naturally shaped pocket stone sourced from moving Scottish water channels. Polished only by the currents of deep geological valleys. Includes historical stream lore paths.</p>
                     <div class="auction-status">
                         👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.18 XMR</span><br>
                         ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
@@ -185,33 +262,6 @@
                                 <strong>How to Bid:</strong><br>
                                 1. Transfer your desired bid amount to the wallet address above.<br>
                                 2. Include the Tracking ID <code>GLEN-01</code> in your transaction details.<br>
-                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded.
-                            </p>
-                        </details>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PREMIUM ITEM 3: GROUNDING CIRCLES -->
-            <div class="stone-card">
-                <div>
-                    <h3>Miniature Earthing Stone Circle</h3>
-                    <p>A sacred showcase collection of raw, unpolished threshold stones hand-selected to form a miniature grounding circle. Crafted to bring the calming, ancient earthing energy of the Scottish wilderness onto your desk or workspace. Includes its specific walking chronicle.</p>
-                    <div class="auction-status">
-                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.45 XMR</span><br>
-                        ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
-                        🔑 <strong>Bid Tracking ID:</strong> <code>CIRCLE-01</code>
-                    </div>
-                </div>
-                <div>
-                    <div class="checkout-box">
-                        <details>
-                            <summary>🎲 Place Your Monero Bid</summary>
-                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
-                            <p class="instructions">
-                                <strong>How to Bid:</strong><br>
-                                1. Transfer your desired bid amount to the wallet address above.<br>
-                                2. Include the Tracking ID <code>CIRCLE-01</code> in your transaction details.<br>
                                 3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded.
                             </p>
                         </details>
