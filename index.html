@@ -75,19 +75,39 @@
             color: var(--forest);
             margin: 20px 0 10px 0;
         }
-        .btn-buy {
-            background-color: var(--forest);
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 4px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.2s;
+        .checkout-box {
+            margin-top: 15px;
         }
-        .btn-buy:hover { opacity: 0.9; }
+        .checkout-box details {
+            background: #e2ebe2;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #c2dac2;
+        }
+        .checkout-box summary {
+            font-weight: bold;
+            color: #28442e;
+            font-size: 0.95em;
+            user-select: none;
+        }
+        .address-box {
+            font-size: 0.8em;
+            margin: 10px 0 5px 0;
+            font-family: monospace;
+            background: white;
+            padding: 8px;
+            border: 1px solid #d4dfd4;
+            word-break: break-all;
+            user-select: all;
+        }
+        .instructions {
+            font-size: 0.75em;
+            margin: 8px 0 0 0;
+            color: #526652;
+            font-style: italic;
+            line-height: 1.4;
+        }
         .footer {
             text-align: center;
             padding: 80px 20px 40px 20px;
@@ -114,6 +134,7 @@
 
     <div class="container">
         <div class="grid">
+            <!-- COLLECTION 1: HIGHLAND STONES -->
             <div class="stone-card">
                 <div>
                     <h3>Highland Crag Stone</h3>
@@ -121,10 +142,19 @@
                 </div>
                 <div>
                     <div class="price">£25.00</div>
-                    <button class="btn-buy">Purchase via Crypto</button>
+                    <div class="checkout-box">
+                        <details>
+                            <summary>▼ Purchase via Monero</summary>
+                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
+                            <p class="instructions">
+                                *To complete your purchase: Send payment and message your transaction hash along with your physical shipping address to my social profile paths.
+                            </p>
+                        </details>
+                    </div>
                 </div>
             </div>
 
+            <!-- COLLECTION 2: WATER STONES -->
             <div class="stone-card">
                 <div>
                     <h3>Riverbed & Glen Stone</h3>
@@ -132,7 +162,15 @@
                 </div>
                 <div>
                     <div class="price">£20.00</div>
-                    <button class="btn-buy">Purchase via Crypto</button>
+                    <div class="checkout-box">
+                        <details>
+                            <summary>▼ Purchase via Monero</summary>
+                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
+                            <p class="instructions">
+                                *To complete your purchase: Send payment and message your transaction hash along with your physical shipping address to my social profile paths.
+                            </p>
+                        </details>
+                    </div>
                 </div>
             </div>
         </div>
