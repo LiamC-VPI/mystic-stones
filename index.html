@@ -1,346 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threshold Stones - Cairngorm Quartz, Bennachie & Loch Tay Water</title>
-    <style>
-        :root {
-            --bg: #fbfcfb;
-            --text-dark: #1b261b;
-            --text-light: #4a5d4a;
-            --forest: #1e3323;
-            --card: #f4f7f4;
-            --border: #cfe0cf;
-            --gold: #8b7355;
-            --lore-bg: #edf2ed;
-        }
-        body {
-            font-family: 'Georgia', serif;
-            background-color: var(--bg);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-        }
-        .header {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 90px 20px 40px 20px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3.2em;
-            font-weight: 400;
-            color: var(--forest);
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-        .story-box {
-            font-style: italic;
-            font-size: 1.2em;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-            border-left: 3px solid var(--border);
-            padding-left: 20px;
-            text-align: left;
-        }
-        .lore-section {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: var(--lore-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 35px;
-        }
-        .lore-section h2 {
-            color: var(--forest);
-            font-size: 1.8em;
-            margin-top: 0;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-            font-weight: 400;
-        }
-        .lore-section h3 {
-            color: var(--gold);
-            font-size: 1.3em;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .dev-note {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #f4f7f4;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9em;
-            color: var(--text-light);
-            font-style: italic;
-        }
-        .donation-container {
-            max-width: 800px;
-            margin: 30px auto 10px auto;
-            background-color: #f7faf7;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 25px;
-            text-align: center;
-        }
-        .donation-container h4 {
-            margin-top: 0;
-            color: var(--forest);
-            font-size: 1.2em;
-        }
-        .donation-box details {
-            background: var(--forest);
-            color: white;
-            padding: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            display: inline-block;
-            width: 80%;
-            max-width: 300px;
-        }
-        .donation-box summary {
-            user-select: none;
-            list-style: none;
-        }
-        .donation-box summary::-webkit-details-marker {
-            display: none;
-        }
-        .donation-address {
-            font-size: 0.85em;
-            margin-top: 15px;
-            font-family: monospace;
-            background: white;
-            color: var(--text-dark);
-            padding: 10px;
-            border: 1px solid var(--border);
-            word-break: break-all;
-            user-select: all;
-            font-weight: normal;
-            border-radius: 4px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 40px;
-        }
-        .stone-card {
-            background-color: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .stone-card h3 {
-            margin-top: 0;
-            font-size: 1.5em;
-            color: var(--forest);
-        }
-        .auction-status {
-            background-color: #e8ede8;
-            border: 1px dashed var(--forest);
-            padding: 10px;
-            border-radius: 4px;
-            margin: 15px 0;
-            font-size: 0.9em;
-        }
-        .current-bid {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: var(--gold);
-        }
-        .checkout-box {
-            margin-top: 15px;
-        }
-        .checkout-box details {
-            background: #e2ebe2;
-            padding: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 1px solid #c2dac2;
-        }
-        .checkout-box summary {
-            font-weight: bold;
-            color: #28442e;
-            font-size: 0.95em;
-            user-select: none;
-        }
-        .address-box {
-            font-size: 0.8em;
-            margin: 10px 0 5px 0;
-            font-family: monospace;
-            background: white;
-            padding: 8px;
-            border: 1px solid #d4dfd4;
-            word-break: break-all;
-            user-select: all;
-        }
-        .instructions {
-            font-size: 0.75em;
-            margin: 8px 0 0 0;
-            color: #526652;
-            font-style: italic;
-            line-height: 1.4;
-        }
-        .footer {
-            text-align: center;
-            padding: 80px 20px 40px 20px;
-            font-size: 0.9em;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            max-width: 800px;
-            margin: 80px auto 0 auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threshold Stones // LC.VPI Sovereign Sentinel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #050811; color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .quartz-glow { box-shadow: 0 0 30px rgba(6, 182, 212, 0.12); }
+    .portal-glow { box-shadow: 0 0 35px rgba(16, 185, 129, 0.2); }
+  </style>
 </head>
-<body>
-    <div class="header">
-        <h1>Threshold Stones</h1>
-        <div class="story-box">
-            "I am a threshold walker of Scotland, born into this life on the 28th of September, 1994. My path takes me through the thin places of this ancient land—across mist-shrouded Highland peaks, forgotten riverbeds, and weathered Atlantic coastlines. Every stone gathered here remains in its raw, rough form. I do not mass-produce; I offer these rare fragments to the world via open cryptographic auction."
+<body class="p-4 md:p-8 max-w-6xl mx-auto space-y-10">
+
+  <!-- ============================================================= -->
+  <!-- CONFIGURATION -->
+  <!-- ============================================================= -->
+  <script>
+    // Active Cloudflare HTTPS URL:
+    const LIVE_HTTPS_UPLINK = "https://drawing-polyphonic-changing-track.trycloudflare.com";
+    
+    const WALLET_ADDRESS = "44HHgSFi9x7HoBeWSgJAFNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm";
+    const SIGNAL_LINK = "https://signal.me/#p/+44XXXXXXXXXX"; // Replace with your Signal link
+  </script>
+
+  <!-- PURCHASE MODAL -->
+  <div id="buy-modal" class="hidden fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-50 p-4">
+    <div class="bg-slate-900 border border-cyan-500/40 p-6 rounded-2xl max-w-md w-full text-center quartz-glow">
+      <div class="text-3xl mb-2 text-cyan-400">💎</div>
+      <h2 class="text-lg font-bold text-cyan-300" id="modal-stone-name">Acquiring Specimen</h2>
+      <p class="text-xs text-slate-400 mb-4" id="modal-stone-origin">Scottish Highlands</p>
+      
+      <div class="flex justify-center mb-3">
+        <img id="modal-qr" class="w-44 h-44 bg-white p-2 rounded-lg border border-slate-700" src="" alt="Monero QR" />
+      </div>
+
+      <div class="text-xs text-slate-300 mb-1">Send Exactly: <span class="text-cyan-400 font-bold text-sm" id="modal-amount">0.00</span> XMR</div>
+      <div class="bg-black/80 p-2.5 rounded text-[10px] break-all border border-slate-800 text-cyan-300 mb-4 select-all" id="modal-wallet">Loading...</div>
+
+      <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-left space-y-2 mb-4 text-[10px] text-slate-400 leading-relaxed">
+        <span class="text-emerald-400 font-bold">🔒 ENCRYPTED DISPATCH INSTRUCTIONS:</span><br>
+        1. Settle the exact XMR amount to the address above.<br>
+        2. Tap the Signal button below to transmit your Transaction Hash (TxID) and physical delivery coordinates in complete privacy.
+      </div>
+
+      <a id="modal-signal-btn" href="#" target="_blank" class="block w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2.5 rounded-lg text-xs tracking-wider transition mb-2">
+        💬 Open Encrypted Comms on Signal
+      </a>
+      <button onclick="closeModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 font-bold py-1.5 rounded-lg text-xs transition">
+        Cancel / Close
+      </button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800 pb-6 gap-4">
+    <div>
+      <div class="flex items-center gap-2">
+        <h1 class="text-2xl font-black text-cyan-400 tracking-wider">THRESHOLD STONES</h1>
+        <span class="text-slate-600">//</span>
+        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase">SCOTTISH HIGHLAND LITHIC CIPHER</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">Raw Scottish Quartz Gathered in the Thin Places • Deep Space Orbitals • Sovereign P2P</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="https://www.tiktok.com/@thresholdwalker01" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-pink-400 border border-pink-500/30 hover:bg-pink-950 transition flex items-center gap-1.5">
+        🎵 @thresholdwalker01
+      </a>
+      <a id="header-signal" href="#" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-950 transition flex items-center gap-1.5">
+        💬 Signal
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================= -->
+  <!-- LIVE HTTPS UPLINK PORTAL (THE BRIDGE TO YOUR TERMINAL APP) -->
+  <!-- ============================================================= -->
+  <section class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-cyan-950/40 border border-emerald-500/40 rounded-2xl p-6 md:p-8 portal-glow">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-500/50 animate-pulse">
+          ● DEEP SPACE ORBITAL UPLINK ACTIVE
         </div>
-    </div>
-    <!-- INFORMATIVE FOLKLORE & NASA SPACE IMAGERY CHRONICLES -->
-    <div class="lore-section">
-        <h2>Chronicles of the Highland Earth & Deep Space</h2>
-        <p>For millennia, the geological anchors of Scotland were viewed by the Celts and Picts as physical vessels holding kinetic energy, starlight, and protective tribal boundaries. Today, these ancient sites reveal secrets from both past folklore and cutting-edge space exploration.</p>
-        
-        <h3>1. The Triboluminescent Cold Light of the Sìth</h3>
-        <p>Before modern mineralogy classified the kinetic spark, our ancestors witnessed quartz crystals flashing with blue and white internal light when struck firmly together in absolute darkness. In Gaelic folklore, this heatless illumination was called the cold light of the <em>Sìth</em> (the faerie folk). It was produced in prehistoric chambers to invoke underground earth spirits and ward off the dark. To hold triboluminescent quartz is to touch the literal kinetic ritual used by neolithic threshold keepers.</p>
-
-        <h3>2. The Cairngorm Quartz & Ghillie Dhu</h3>
-        <p>The smoky and milk-white quartz specimens found throughout the high granitic blocks of the Cairngorms are deeply historical. The old highlanders wore raw quartz formations pinned directly over their hearts or embedded into the hilts of their traditional blades (Dirks). They believed the crystal would change hue or fracture to warn them of unseen ambush, acting as a metaphysical talisman connecting the warrior directly to the mountain bedrock.</p>
-
-        <h3>3. Bennachie: From Giant's Tors to NASA Space Radar</h3>
-        <p>Standing proud over the Aberdeenshire lowlands, the rocky granite summits of <strong>Bennachie</strong> are legendary. Local folklore speaks of <em>Jock o' Bennachie</em>, a mythical giant who constructed his stronghold among the crags of the Mither Tap. However, Bennachie bridges ancient history with modern space technology: <strong>NASA space shuttle missions used advanced Spaceborne Imaging Radar (SIR-C) from low Earth orbit to scan Bennachie's terrain</strong>. By penetrating the surface vegetation from space, these radar sweeps mapped the hidden profiles of the ancient Pictish hillfort, proving that this rugged hill fort is a massive, engineered fortress of global historical importance.</p>
-
-        <h3>4. The Tragic Sorrows of Loch Tay</h3>
-        <p>Loch Tay carries immense historical weight. In Highland custom, water harvested from deep, mist-shrouded lochs under the morning light was kept as a protective ward. The waters are forever tied to the haunting story of <strong>Mary Campbell (Mairi Mhòr)</strong> in 1768. When her lover, Alan Morrison, drowned in a ferocious storm on his way to their wedding, a heartbroken Mary composed the legendary Gaelic lament <em>Ailein Duinn</em> (Dark-Haired Alan) before drowning herself in the loch to join him. This water is harvested in remembrance of that fierce, untamed devotion.</p>
-    </div>
-
-    <!-- PACE OF DEVELOPMENT NOTICE -->
-    <div class="dev-note">
-        📜 Note: Auctions are fully active. Product image integrations and deep field-note logs are rolling out at my own pace as I document the landscape paths.
-    </div>
-
-    <!-- GLOBAL DONATION CONTAINER -->
-    <div class="donation-container">
-        <h4>🌲 Support the Path</h4>
-        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 20px;">
-            If you align with open-source internet design, peer-to-peer commerce, and the preservation of raw, ancestral earth lore, consider throwing fuel on the fire. All donations keep this platform entirely sovereign and free from corporate monitoring.
+        <h2 class="text-xl md:text-2xl font-black text-white tracking-wide">
+          LIVE CELESTIAL DOME & ORBITAL RADAR
+        </h2>
+        <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
+          Step inside the active situational console: real-time 2D Highland Sky Dome (stars & planets over Aberdeen), live ISS & Hubble tracking, and European Space Agency Sentinel-2 AI terrain reconnaissance.
         </p>
-        <div class="donation-box">
-            <details>
-                <summary>❤️ Donate via Monero (XMR)</summary>
-                <div class="donation-address">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
-            </details>
+      </div>
+      <a id="live-portal-btn" href="#" target="_blank" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-6 rounded-xl text-xs tracking-widest uppercase transition flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+        <span>Enter Live Station</span>
+        <span class="text-base">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOVEREIGN NOSTR IDENTITY CARD -->
+  <section class="bg-slate-900/80 border border-purple-500/30 rounded-2xl p-5 quartz-glow">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="text-xs font-black text-white bg-purple-950 border border-purple-700 px-2.5 py-0.5 rounded font-mono">
+            LC.VPI
+          </span>
+          <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Status: Sovereign</span>
+          <span class="text-[10px] text-slate-500">| Aberdeen Base (57.15° N, 2.10° W)</span>
         </div>
-    </div>
-
-    <div class="container">
-        <h2 style="text-align: center; color: var(--forest); font-weight: 400; margin-top: 50px;">Live Quartz & Lore Auctions</h2>
-        <div class="grid">
-            <!-- ITEM 1 -->
-            <div class="stone-card">
-                <div>
-                    <h3>Cairngorm Milky Quartz Cluster</h3>
-                    <p>A heavy, raw specimen gathered along the high granitic lines of the Cairngorms. Features distinct, unpolished milk-white quartz terminations nested in host rock. Perfect for grounding and biophilic alignment.</p>
-                    <div class="auction-status">
-                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.25 XMR</span><br>
-                        ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
-                        🔑 <strong>Bid Tracking ID:</strong> <code>CAIRN-MQ01</code>
-                    </div>
-                </div>
-                <div>
-                    <div class="checkout-box">
-                        <details>
-                            <summary>🎲 Place Your Monero Bid</summary>
-                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
-                            <p class="instructions">
-                                <strong>How to Bid:</strong><br>
-                                1. Transfer your desired bid amount to the wallet address above.<br>
-                                2. Include the Tracking ID <code>CAIRN-MQ01</code> in your transaction details.<br>
-                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded.
-                            </p>
-                        </details>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 2 -->
-            <div class="stone-card">
-                <div>
-                    <h3>Triboluminescent Quartz Pair</h3>
-                    <p>Two selected, rough crystalline quartz fragments sourced from high glacial horizons. When rubbed or struck together firmly in absolute darkness, they exhibit clear, brilliant flashes of internal kinetic light (triboluminescence). An ancient, hidden earth-energy ritual kept raw and untouched.</p>
-                    <div class="auction-status">
-                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.30 XMR</span><br>
-                        ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
-                        🔑 <strong>Bid Tracking ID:</strong> <code>TRIBO-Q01</code>
-                    </div>
-                </div>
-                <div>
-                    <div class="checkout-box">
-                        <details>
-                            <summary>🎲 Place Your Monero Bid</summary>
-                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
-                            <p class="instructions">
-                                <strong>How to Bid:</strong><br>
-                                1. Transfer your desired bid amount to the wallet address above.<br>
-                                2. Include the Tracking ID <code>TRIBO-Q01</code> in your transaction details.<br>
-                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded.
-                            </p>
-                        </details>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EXCLUSIVE ITEM 3: LOCH TAY WATER JAR -->
-            <div class="stone-card">
-                <div>
-                    <h3>Loch Tay Remembrance Water Jar</h3>
-                    <p>A sealed glass vial containing raw, untouched water harvested under the morning mist from the shores of Loch Tay. Sourced in memory of Mary Campbell (1768) and her tragic lament, <em>Ailein Duinn</em>. Kept raw and unpurified as a physical totem of Highland grief, fierce devotion, and the dark, untamed spirits of the deep mountain waters.</p>
-                    <div class="auction-status">
-                        👑 <strong>Current Highest Bid:</strong> <span class="current-bid">0.15 XMR</span><br>
-                        ⏳ <strong>Auction Ends:</strong> Oct 20, 2026<br>
-                        🔑 <strong>Bid Tracking ID:</strong> <code>TAY-WATER01</code>
-                    </div>
-                </div>
-                <div>
-                    <div class="checkout-box">
-                        <details>
-                            <summary>🎲 Place Your Monero Bid</summary>
-                            <div class="address-box">44HHgSFi9x7HoBeWSgJAfNFe8wxrz7g4hNnsH1dujZhqed5dZYHG8K6HfabWdnM2Hf1wFoP78yLwrG6EBhTvwN5jQWzigWm</div>
-                            <p class="instructions">
-                                <strong>How to Bid:</strong><br>
-                                1. Transfer your desired bid amount to the wallet address above.<br>
-                                2. Include the Tracking ID <code>TAY-WATER01</code> in your transaction details.<br>
-                                3. Message your transaction hash and bid amount to my social channels. If your bid is beaten, your XMR is immediately refunded.
-                            </p>
-                        </details>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="mt-2 space-y-1 font-mono text-[11px]">
+          <div class="flex items-center gap-2 text-slate-400">
+            <span class="text-slate-500 w-16">Coracle:</span>
+            <span class="text-purple-300 select-all break-all">npub1ww9jlram2dldwmu9pekjhwa3rv923y4c40xdufxr732cw8ezyqkqakynzp</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-400">
+            <span class="text-slate-500 w-16">Flotilla:</span>
+            <span class="text-cyan-300 select-all break-all">npub1usgdhutl4zwplq3rhphqycz9uewxts5d5l43zqsr5t7jyvpyx5asxgvgu7</span>
+          </div>
         </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 shrink-0">
+        <a href="https://coracle.social/users/npub1ww9jlram2dldwmu9pekjhwa3rv923y4c40xdufxr732cw8ezyqkqakynzp" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-950 text-purple-300 border border-purple-500/40 hover:bg-purple-900 transition flex items-center gap-1.5">
+          📖 Coracle Notes
+        </a>
+        <a href="https://njump.me/npub1ww9jlram2dldwmu9pekjhwa3rv923y4c40xdufxr732cw8ezyqkqakynzp" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:text-white transition flex items-center gap-1.5">
+          🌐 Njump Reader
+        </a>
+        <a href="https://app.flotilla.social" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-900 transition flex items-center gap-1.5">
+          ⚓ Flotilla Relays
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO MANIFESTO -->
+  <section class="border border-slate-800 bg-slate-900/40 rounded-2xl p-6 md:p-8 text-center max-w-3xl mx-auto space-y-3">
+    <p class="text-xs md:text-sm text-slate-300 italic leading-relaxed font-sans">
+      "I am a threshold walker of Scotland, born into this life on the 28th of September, 1994. My path takes me through the thin places of this ancient land—mist-shrouded Highland peaks, forgotten riverbeds, and weathered Atlantic coastlines. Every stone gathered here remains in its raw, rough form. I do not mass-produce; I offer these rare fragments to the world via open cryptographic exchange."
+    </p>
+    <div class="text-[10px] text-cyan-400 font-bold tracking-widest uppercase">— LC.VPI // Threshold Walker</div>
+  </section>
+
+  <!-- LITHIC DISPATCH (RAW QUARTZ SPECIMENS) -->
+  <section class="space-y-4">
+    <div class="flex justify-between items-end border-b border-slate-800 pb-3">
+      <div>
+        <h2 class="text-sm font-black text-cyan-400 tracking-wider uppercase">Lithic Dispatch // Raw Scottish Specimens</h2>
+        <p class="text-xs text-slate-400">Untouched mineral fragments. Settled peer-to-peer in Monero (XMR).</p>
+      </div>
+      <span class="text-[10px] text-slate-500 font-mono">SIGNAL DISPATCH ENCRYPTED</span>
     </div>
 
-    <div class="footer">
-        <p>Sovereign open-source internet auction layout.</p>
-        <p>Peer-to-peer asset delivery tracking system active.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- ITEM 1 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/40 transition">
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-800/80 px-2 py-0.5 rounded font-bold font-mono">RAW RIDGE SPECIMEN</span>
+            <span class="text-sm font-black text-cyan-400 font-mono">0.15 XMR</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Cairngorm High-Ridge Raw Quartz</h3>
+          <div class="text-[10px] text-emerald-400 font-mono mb-3">📍 Cairngorms Plateau (57.08° N, 3.65° W)</div>
+          <p class="text-xs text-slate-400 leading-relaxed mb-6 font-sans">
+            Untouched, rough crystalline fragment gathered along the high granite ridges. Weathered by Atlantic winds and glacial frost. Raw, unpolished, and completely natural.
+          </p>
+        </div>
+        <button onclick="openBuyModal('Cairngorm High-Ridge Raw Quartz', 'Cairngorms National Park', 0.15)" class="w-full bg-slate-800 hover:bg-cyan-700 hover:text-white text-cyan-300 border border-cyan-500/30 font-bold py-2.5 rounded-xl text-xs tracking-wider transition">
+          💎 Acquire with Monero
+        </button>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 transition">
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-[10px] bg-purple-950 text-purple-300 border border-purple-800/80 px-2 py-0.5 rounded font-bold font-mono">KINETIC COLD LIGHT</span>
+            <span class="text-sm font-black text-purple-400 font-mono">0.25 XMR</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Triboluminescent Cold-Light Pair</h3>
+          <div class="text-[10px] text-emerald-400 font-mono mb-3">📍 Eastern Highland Drift (57.18° N, 2.45° W)</div>
+          <p class="text-xs text-slate-400 leading-relaxed mb-6 font-sans">
+            Two rough quartz stones that emit visible flashes of cold blue-white light (the Cold Light of the Sith) when struck together in total darkness.
+          </p>
+        </div>
+        <button onclick="openBuyModal('Triboluminescent Cold-Light Pair', 'Eastern Highland Drift Beds', 0.25)" class="w-full bg-slate-800 hover:bg-purple-700 hover:text-white text-purple-300 border border-purple-500/30 font-bold py-2.5 rounded-xl text-xs tracking-wider transition">
+          💎 Acquire with Monero
+        </button>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500/40 transition">
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2 py-0.5 rounded font-bold font-mono">PICTISH BEDROCK</span>
+            <span class="text-sm font-black text-emerald-400 font-mono">0.20 XMR</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Bennachie Mither Tap Granite-Quartz</h3>
+          <div class="text-[10px] text-emerald-400 font-mono mb-3">📍 Bennachie Pictish Tor (57.29° N, 2.53° W)</div>
+          <p class="text-xs text-slate-400 leading-relaxed mb-6 font-sans">
+            Pink granite matrix with exposed milky quartz veins from the base of the ancient Pictish hillfort, overflown by NASA Spaceborne Imaging Radar.
+          </p>
+        </div>
+        <button onclick="openBuyModal('Bennachie Mither Tap Granite-Quartz', 'Bennachie Pictish Tor', 0.20)" class="w-full bg-slate-800 hover:bg-emerald-700 hover:text-white text-emerald-300 border border-emerald-500/30 font-bold py-2.5 rounded-xl text-xs tracking-wider transition">
+          💎 Acquire with Monero
+        </button>
+      </div>
+
     </div>
+  </section>
+
+  <!-- CHRONICLES SECTION -->
+  <section class="space-y-6 pt-4 border-t border-slate-800">
+    <div class="text-center space-y-1">
+      <span class="text-xs font-bold text-cyan-400 tracking-widest uppercase">Ancient Geology Meets Orbital Eyes</span>
+      <h2 class="text-xl md:text-2xl font-black text-white">CHRONICLES OF THE HIGHLAND EARTH & DEEP SPACE</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <h3 class="text-sm font-bold text-cyan-300">01 // THE TRIBOLUMINESCENT COLD LIGHT OF THE SITH</h3>
+        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+          Before modern mineralogy classified the kinetic spark, our ancestors witnessed quartz crystals flashing with blue and white internal light when struck firmly together in absolute darkness. In Gaelic folklore, this heatless illumination was called the cold light of the Sìth (the fairy folk).
+        </p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <h3 class="text-sm font-bold text-purple-300">02 // THE CAIRNGORM QUARTZ & GHILLIE DHU</h3>
+        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+          The smoky and milk-white quartz specimens found throughout the high granite blocks of the Cairngorms are deeply historical. Old highlanders wore raw quartz formations pinned directly over their hearts or embedded into the hilts of their traditional blades (Dirks).
+        </p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <h3 class="text-sm font-bold text-emerald-300">03 // BENNACHIE: FROM GIANT'S TORS TO NASA SPACE RADAR</h3>
+        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+          Standing proud over the Aberdeenshire lowlands, the rocky granite summits of Bennachie are legendary. NASA space shuttle missions used advanced Spaceborne Imaging Radar (SIR-C) from Low Earth orbit to scan Bennachie's terrain, proving that this rugged hill fort is a massive, engineered fortress of global historical importance.
+        </p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <h3 class="text-sm font-bold text-yellow-300">04 // THE TRAGIC SORROWS OF LOCH TAY</h3>
+        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+          Loch Tay carries immense historical weight. In highland custom, water harvested from deep, mist-shrouded lochs under the morning light was kept as a protective ward, forever tied to the haunting story of Mary Campbell (Mairi Mhor) in 1786 and the lament 'Ailein Duinn'.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500 space-y-2">
+    <div>LC.VPI // Threshold Walker • Aberdeenshire, Scotland</div>
+    <div class="text-[10px] text-slate-600 font-mono">Zero Corporate Intermediaries • Untraceable Cryptographic Exchange</div>
+  </footer>
+
+  <script>
+    document.getElementById("live-portal-btn").href = LIVE_HTTPS_UPLINK;
+    document.getElementById("header-signal").href = SIGNAL_LINK;
+
+    function openBuyModal(name, origin, amount) {
+      document.getElementById("modal-stone-name").innerText = name;
+      document.getElementById("modal-stone-origin").innerText = origin;
+      document.getElementById("modal-amount").innerText = amount.toFixed(2);
+      document.getElementById("modal-wallet").innerText = WALLET_ADDRESS;
+
+      const qrData = `monero:${WALLET_ADDRESS}?tx_amount=${amount}&tx_description=${encodeURIComponent(name)}`;
+      document.getElementById("modal-qr").src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}`;
+      document.getElementById("modal-signal-btn").href = SIGNAL_LINK;
+      document.getElementById("buy-modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("buy-modal").classList.add("hidden");
+    }
+  </script>
 
 </body>
 </html>
